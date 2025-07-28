@@ -1,0 +1,28 @@
+<svg width="1440" height="1024" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_fn_72_1428)">
+<path d="M544.096 28.9179C232.373 55.7957 98.231 193.918 70.1257 259.619C-186.915 666.147 285.763 1001 680.803 1001C1077.82 1001 1239.09 863.251 1371.7 737.821C1504.32 612.391 1423.27 341.373 1302.94 226.022C1182.6 110.671 933.75 -4.67945 544.096 28.9179Z" fill="url(#paint0_radial_72_1428)"/>
+</g>
+<defs>
+<filter id="filter0_fn_72_1428" x="-103" y="-77" width="1643" height="1178" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_72_1428"/>
+<feTurbulence type="fractalNoise" baseFrequency="5 5" stitchTiles="stitch" numOctaves="3" result="noise" seed="6978" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="effect1_foregroundBlur_72_1428" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(0, 0, 0, 0.25)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect2_noise_72_1428">
+<feMergeNode in="effect1_foregroundBlur_72_1428" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<radialGradient id="paint0_radial_72_1428" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(718.5 512) rotate(89.909) scale(489.001 721.502)">
+<stop offset="0.192308" stop-color="#D48287"/>
+<stop offset="1" stop-color="#F8F6EC" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

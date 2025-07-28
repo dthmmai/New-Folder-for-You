@@ -1,0 +1,1058 @@
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  width: 1440px; /* or 100% if you want full screen stretch */
+  margin: 0 auto; /* center */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    245.08deg,
+    #F8F6EC 0%,
+    #EFE5DF 100%
+  );
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-family: 'Dogica Pixel', monospace;
+}
+
+.bg {
+  position: fixed;
+  z-index: -2;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200vh;
+  background: transparent url('images/noise-two.png');
+  background-repeat: repeat;
+  animation: bg-animation .2s infinite;
+  opacity: 0.;
+  mix-blend-mode:lighten;
+  visibility: visible;
+  pointer-events: none;
+}
+
+@keyframes bg-animation {
+  0% { transform: translate(0,0) }
+  10% { transform: translate(-5%,-5%) }
+  20% { transform: translate(-10%,5%) }
+  30% { transform: translate(5%,-10%) }
+  40% { transform: translate(-5%,15%) }
+  50% { transform: translate(-10%,5%) }
+  60% { transform: translate(15%,0) }
+  70% { transform: translate(0,10%) }
+  80% { transform: translate(-15%,0) }
+  90% { transform: translate(10%,5%) }
+  100% { transform: translate(5%,0) }
+}
+
+.container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+}
+
+#circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: -200px;
+  transform-origin: bottom center;
+}
+
+.folder {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 160px; 
+  position: absolute;
+  width: 60px;
+  height: 40px;
+  z-index: 25;
+  background: url('images/folder 1.svg') no-repeat center/contain;
+  text-align: center;
+  line-height: 120px;
+  color: black;
+  font-size: 10px;
+  opacity: 0.7;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: visible;
+  transition: all 0.5s ease;
+}
+
+.folder.active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.buttons {
+  position: absolute;
+  bottom: 30px;
+  left: 48%;
+  transform: translateX(-50%);
+  z-index: 30;
+}
+
+button {
+  background-image: url('images/button.svg');
+  background-repeat: no-repeat;
+  background-color: #00000000;
+  margin: 5px;
+  padding: 11px 20px;
+  border: #000;
+  cursor: pointer;
+  font-family: 'Dogica Pixel', monospace;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+#content-box {
+  opacity: 0;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0);
+  border: 2px solid #fef5f500;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.shadow-one {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 323 / 40;
+  height: auto;
+  z-index: -3;
+  opacity: 100%;
+  pointer-events: none;
+}
+
+.shadow-one svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.box {
+  position: absolute;
+  width: 761px;
+  height: 389px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 30%) scale(0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.8s ease-in-out;
+  z-index: 4;
+}
+
+.box.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.box .group {
+  position: absolute;
+}
+
+.box .group-2 {
+  width: 249px;
+  height: 389px;
+  top: 0;
+  left: 0;
+}
+
+.box .group-3 {
+  width: 184px;
+  height: 123px;
+  top: 273px;
+  left: 514px;
+}
+
+.box .group-4 {
+  width: 315px;
+  height: 254px;
+  top: 0;
+  left: 446px;
+}
+
+.box .group-5 {
+  width: 182px;
+  height: 119px;
+  top: 270px;
+  left: 300px;
+}
+
+.box .group-6 {
+  width: 154px;
+  height: 254px;
+  top: 0;
+  left: 278px;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/*  Shadow Folder 1 (behind the title "New Folder For You") */
+.shadow-folder-1 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 1615px; /* same as Figma */
+  height: 800px;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* behind the title */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.shadow-folder-1.show {
+  opacity: 1;
+}
+
+.shadow-folder-1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/*  Folder 2 Container */
+.note-folder-2 {
+  position: absolute;
+  width: 319px;
+  height: 372.07px;
+  right: 5%;
+  top: 35%;
+  transform: translate(-180%, 50%) scale(0.1);
+  opacity: 0;
+  z-index: 5;
+  pointer-events: none;
+  transition: all 0.6s ease-in-out;
+}
+
+.note-folder-2.show {
+  opacity: 1;
+  transform: translate(-50%, -30%) scale(1);
+  pointer-events: auto;
+}
+
+.note-folder-2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text Frame */
+.note-text {
+  position: absolute;
+  width: 200px;
+  height: 198px;
+  left: calc(50% - 132px + 0.5px);
+  top: 57px;
+  font-family: 'Dogica Pixel', monospace;
+  color: #000000;
+  font-size: 12px;
+}
+
+.note-text .line1 {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+}
+
+.note-text .line2 {
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  text-align: right;
+}
+
+.note-text .line3 {
+  position: absolute;
+  top: 60px;
+  left: -10px;
+}
+
+.note-text .line4 {
+  position: absolute;
+  top: 105px;
+  left: 0px;
+  text-align: right;
+}
+
+.note-text p {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #000;
+  width: 0;
+  animation: none;
+}
+
+.note-text.typing-active .line1 {
+  animation: typing 2.5s steps(30, end) forwards, blink 0.7s step-end infinite;
+}
+
+.note-text.typing-active .line2 {
+  animation: typing 2.5s steps(30, end) forwards 2.7s, blink 0.7s step-end infinite 2.7s;
+}
+
+.note-text.typing-active .line3 {
+  animation: typing 2.5s steps(30, end) forwards 5.5s, blink 0.7s step-end infinite 5.5s;
+}
+
+.note-text.typing-active .line4 {
+  animation: typing 2.5s steps(30, end) forwards 8.3s, blink 0.7s step-end infinite 8.3s;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/*  PIE (corrected size) */
+.pie {
+  position: absolute;
+  width: 131.407px;
+  height: 99.117px;
+  bottom: 330px;      /* behind & a bit above folder */
+  left: 60%;
+  opacity: 0;
+  z-index: -2;         /* behind folder */
+  transform: translate(-50%, 0) scale(0.9);
+  pointer-events: auto;
+  transition: all 0.6s ease-in-out;
+}
+
+.pie.show {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.pie.move-left {
+  transition: all 2s ease-in-out;
+  left: 10%;
+}
+
+/* PIE CAUGHT SIGN */
+.pie-caught {
+  position: absolute;
+  width: 100px;     /* smaller size */
+  height: auto;
+  top: -80px;       /* above pie */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  z-index: -1;
+}
+
+.pie-caught.show {
+  opacity: 1;
+}
+/*  Shadow Folder 2 (behind note & pie) */
+.shadow-folder-2 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 1615px; /* or your actual size */
+  height: 800px;
+  transform: translate(-50%, -50%);
+  z-index: -2; /* behind note and pie */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+/*  Gift for U */
+.note-folder-2 .gift {
+  position: absolute;
+  bottom: 105px; /* 15px BELOW the note */
+  left: 60%;
+  transform: translateX(-50%) scale(0.8);
+  width: 120px;
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+  z-index: 10;
+}
+
+.note-folder-2 .gift.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+}
+
+/*  Flower (slides in) */
+.flower {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  top: 50%;
+  left: 100%; /* start off-screen */
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  z-index: 12;
+}
+
+.flower.show {
+  left: 30%;
+  top: 50%;
+  opacity: 1;
+}
+
+
+.shadow-folder-2.show {
+  opacity: 1;
+}
+
+.shadow-folder-2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* Existing Folder 1, Folder 2 CSS here ... */
+
+.shadow-folder-3 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 1615px; /* same size as others or adjust */
+  height: 800px;
+  transform: translate(-50%, -50%);
+  z-index: -2; /* behind note & frame */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.shadow-folder-3.show {
+  opacity: 1;
+}
+
+.shadow-folder-3 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+/*  FOLDER 3 STYLES */
+.folder-3-container {
+  position: absolute;
+  top: 10%;   /* adjust to match frame position */
+  left: 35%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 20;
+}
+
+.folder-3-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.frame-note-3 {
+  position: relative; /*  make note relative to this */
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 21;
+}
+
+.frame-note-3.show {
+  opacity: 1;
+}
+
+.note-3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out 0.8s;
+  z-index: 22;
+}
+
+.note-3.show {
+  opacity: 1;
+}
+
+.calendar-1-3 {
+  position: absolute;
+  left: 150px;
+  top: 200px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out 1.6s;
+  z-index: 23;
+}
+
+.calendar-1-3.show {
+  opacity: 1;
+}
+
+.calendar-2-3 {
+  position: absolute;
+  left: 150px;
+  top: 200px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out 2.1s;
+  z-index: 24;
+}
+
+.calendar-2-3.show {
+  opacity: 1;
+}
+/*  Shadow Folder 4 (behind path) */
+.shadow-folder-4 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -3; /* behind path folder 4 */
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.shadow-folder-4.show {
+  opacity: 1;
+}
+
+.shadow-folder-4 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*  Path Folder 4 (full screen width) */
+.path-folder-4 {
+  position: absolute;
+  bottom: -4%;
+  left: 55%;
+  width: 110%;
+  height: auto;
+  transform: translate(-50%, 100%) scale(1);
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+  z-index: -2;
+}
+
+.path-folder-4.show {
+  opacity: 1;
+  transform: translate(-50%, 0%) scale(1);
+}
+
+
+/*  Folder 4 Container */
+.folder-4-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 1;
+
+}
+
+.folder-4-container.show {
+  opacity: 1;
+  pointer-events: none;
+}
+
+/*  Path Animation SVG */
+.folder4-path {
+  width: 135%;
+  max-width: 1650px;
+  height: 750px;
+  left: 20%;
+}
+
+.folder4-path text {
+  font-family: 'Dogica Pixel', monospace;
+  font-size: 12px;
+  fill: #000000;
+}
+
+#text2 {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/*  Flower Folder Animation */
+.flower-folder-4 {
+  position: absolute;
+  right: 0%;
+  bottom: 30%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, 0) scale(0.1);
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.flower-folder-4.show {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1) rotate(0deg);
+  animation: rotateFlower 6s linear infinite;
+}
+
+@keyframes rotateFlower {
+  from { transform: translate(-50%, 0) scale(1) rotate(0deg); }
+  to { transform: translate(-50%, 0) scale(1) rotate(360deg); }
+}
+
+.flower-img {
+  width: 100%;
+  height: auto;
+}
+
+/*  Circular Words */
+.circle-text {
+  position: absolute;
+  font-family: 'Dogica Pixel', monospace;
+  font-weight: 400;
+  font-size: 10px;
+  color: #000000;
+  transition: color 0.5s ease;
+  pointer-events: none;
+}
+
+/*  Positioning each word as you provided */
+.word-i {
+  width: 8px;
+  left: calc(50% - 8px/2 - 16px);
+  top: 12.55%;
+  transform: rotate(161.01deg);
+}
+
+.word-beside {
+  width: 50px;
+  left: calc(50% - 60px/2 - 50px);
+  top: 65.97%;
+  transform: rotate(49.91deg);
+}
+
+.word-want {
+  width: 42px;
+  left: calc(50% - 42px/2 - 63.74px);
+  top: 35.44%;
+  transform: rotate(105.2deg);
+}
+
+.word-one {
+  width: 32px;
+  left: calc(50% - 32px/2 + 54.87px);
+  top: 22.95%;
+  transform: rotate(-132.77deg);
+}
+
+.word-the {
+  width: 30px;
+  left: calc(50% - 30px/2 + 66px);
+  top: 56.88%;
+  transform: rotate(-71.43deg);
+}
+
+.word-youre {
+  width: 57px;
+  left: calc(50% - 57px/2 + 13.5px);
+  top: 73.22%;
+  color: rgba(0, 0, 0, 0.9);
+  transform: rotate(-8deg);
+}
+
+
+.circle-text.white {
+  color: white;
+}
+
+/*  Shadow Folder 5 */
+.shadow-folder-5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  z-index: -3;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.shadow-folder-5.show {
+  opacity: 1;
+}
+
+.shadow-folder-5 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*  Flower Folder 5 */
+.flower-folder-5 {
+  position: absolute;
+  top: 10%;  /* top-left */
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  transform: scale(0.1);
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.flower-folder-5.show {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  animation: rotateFlower 6s linear infinite;
+}
+
+.flower-folder-5:hover {
+  transform: scale(1.5) rotate(0deg); /* Hover grow */
+}
+
+.circle-text {
+  position: absolute;
+  font-family: 'Dogica Pixel', monospace;
+  font-weight: 400;
+  font-size: 10px;
+  color: #000000;
+  transition: color 0.5s ease, transform 0.7s ease;
+  pointer-events: none;
+}
+
+.circle-text.white {
+  color: white;
+}
+
+/*  Dropping Animation */
+
+/*  Shadow Folder 5 */
+.shadow-folder-5 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+  z-index: -2;
+}
+.shadow-folder-5.show {
+  opacity: 1;
+}
+.shadow-folder-5 img {
+  width: 100%;
+  height: auto;
+}
+
+/*  Flower Folder 5 */
+.flower-folder-5 {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  transform: scale(0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1);
+  z-index: 5;
+}
+.flower-folder-5.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+.flower-folder-5:hover:not(.clicked) {
+  transform: scale(1.5);
+}
+.flower-folder-5.clicked {
+  transform: scale(1); /* locked to normal after click */
+}
+.flower-folder-5.stopped {
+  animation: none !important; /* stop rotating */
+}
+.circle-text.drop {
+  transition: all 0.8s ease-in-out;
+  transform: rotate(0deg) !important;
+  opacity: 1; /* stays visible until folder closes */
+}
+
+
+/*  Words Drop Animation */
+.circle-text {
+  transition: all 0.8s ease-in-out;
+}
+
+.circle-text.drop {
+  position: absolute; /*  independent from the flower */
+  top: 0%;       /* falls below flower */
+  transform: rotate(0deg) !important; /*  aligned with screen */
+}
+
+
+
+/*  Notification Folder 5 */
+.noti-folder-5 {
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+  z-index: 10;
+}
+.noti-folder-5.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.noti-folder-5.hide {
+  opacity: 0;
+  transform: translate(-40%, 10%) scale(0.1);
+}
+/*  FOLDER 6 CONTAINER */
+.folder-6-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+.folder-6-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/*  Shadows */
+.shadow-folder-6 {
+  position: absolute;
+  left: 5%;
+  top: -30%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.shadow-folder-6.show {
+  opacity: 1;
+}
+
+/*  Arms */
+.arm {
+  position: absolute;
+  transition: transform 2s ease-in-out;
+  opacity: 1;
+}
+.arm1 {
+  left: -874.98px;
+  top: 60px;
+  width: 893.06px;
+  height: 332.46px;
+}
+.arm2 {
+  left: 1460.51px;
+  top: 144.85px;
+  width: 784.51px;
+  height: 420.15px;
+}
+
+/*  Arms B */
+.arm1b, .arm2b {
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.8s ease-in-out;
+}
+.arm1b {
+  left: -39.98px;
+  top: 60px;
+  width: 893.06px;
+  height: 332.46px;
+}
+.arm2b {
+  left: 785.51px;
+  top: 144.85px;
+  width: 784.51px;
+  height: 420.15px;
+}
+.arm1b.show, .arm2b.show {
+  opacity: 1;
+}
+
+/*  Text Path Positions */
+.text-path-1 {
+  position: absolute;
+  left: -145.5px;
+  top: 69.15px;
+}
+.text-path-2 {
+  position: absolute;
+  left: 1030px;
+  top: 490px; /* adjust visually */
+  z-index: 30;
+}
+
+.text-folder-6 {
+  position: absolute;
+  top: 22.5%;
+  left: 56%;
+  transform: translate(-50%, 0);
+  opacity: 0;                /* Initially hidden */
+  width: auto;               /* keep proportion */
+  height: auto;
+  z-index: 50;               /* above arms */
+  pointer-events: none;
+}
+
+.text-folder-6.show {
+  animation: fadeLeftToRight 1.5s ease forwards;
+}
+
+@keyframes fadeLeftToRight {
+  0% {
+    clip-path: inset(0 100% 0 0); /* Fully hidden */
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    clip-path: inset(0 0 0 0); /* Fully revealed */
+    opacity: 1;
+  }
+}
+/*  Folder 7 Container */
+.music-folder-7 {
+  position: absolute;
+  top: 10%;        /* As you required: 35% from top */
+  right: 20%;       /* As you required: 5% from right */
+  transform: translate(0, 0) scale(0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s ease-in-out;
+  z-index: 15;     /* above shadows */
+}
+
+.music-folder-7.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/*  Shadow Folder 7 */
+.shadow-folder-7 {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.shadow-folder-7.show {
+  opacity: 1;
+}
+
+/*  Music Frame Image */
+.music-img {
+  width: 363.26px;    /* adjust as needed */
+  height: auto;
+  display: block;
+}
+
+/*  Note Text Position */
+.music-folder-7 .note-text {
+  position: absolute;
+  top:130px;       /* inside music frame */
+  left: 90px;
+  font-family: 'Dogica Pixel', monospace;
+  font-size: 10px;
+  color: black;
+}
+
+/*  Folder 8 initial state */
+.folder-8-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.shadow-folder-8 {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  top: -10%;
+  left: 0;
+}
+
+.shadow-folder-8.show {
+  opacity: 1;
+}
+
+.end-folder-8 {
+  position: absolute;
+  top: 45%;       /* adjust as needed */
+  left: 50%;      /* adjust as needed */
+  transform: translate(-50%, -50%) scale(0.1);
+  transform-origin: center center;  /*  important */
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.end-folder-8.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
